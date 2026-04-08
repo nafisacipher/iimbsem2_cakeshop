@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Bakery Name] | Bespoke Cakes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="logo">[Your Bakery Name]</h1>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#builder">Bespoke Builder</a></li>
+            <li><a href="#booking">Book</a></li>
+        </ul>
+    </nav>
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h2>Artisan Baking, Redefined.</h2>
+            <p>Experience the luxury of custom-crafted desserts tailored to your exact taste and vision.</p>
+            <a href="#builder" class="btn">Design Your Cake</a>
+        </div>
+    </header>
+    <section id="builder" class="builder-section">
+        <div class="builder-header">
+            <h2>The Bespoke Cake Studio</h2>
+            <p>Design your masterpiece in 3D. Rotate the model to view it from all angles.</p>
+        </div>
+        <div class="builder-container">
+            <div id="canvas-container" class="canvas-box"></div>
+            <div class="controls-box">
+                <h3>Customization Menu</h3>
+                <div class="control-group">
+                    <label for="flavor">Sponge Flavor</label>
+                    <select id="flavor">
+                        <option value="vanilla" data-price="0">Madagascar Vanilla (Base)</option>
+                        <option value="chocolate" data-price="300">Belgian Chocolate (+₹300)</option>
+                        <option value="redvelvet" data-price="400">Classic Red Velvet (+₹400)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Cake Structure</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="tier-mid" value="800">
+                        <label for="tier-mid">Add Middle Tier (+₹800)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="tier-top" value="500">
+                        <label for="tier-top">Add Top Tier (+₹500)</label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="finish">Exterior Finish</label>
+                    <select id="finish">
+                        <option value="smooth" data-price="0">Smooth Buttercream (Base)</option>
+                        <option value="textured" data-price="250">Textured Stucco (+₹250)</option>
+                        <option value="metallic" data-price="800">Gold Leaf Accents (+₹800)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="cream-design">Cream Piping Design</label>
+                    <select id="cream-design">
+                        <option value="none" data-price="0">Modern Minimalist (None)</option>
+                        <option value="pearl" data-price="350">Classic Pearl Border (+₹350)</option>
+                        <option value="rosette" data-price="450">Vintage Rosettes (+₹450)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="toppings">Gourmet Toppings</label>
+                    <select id="toppings">
+                        <option value="none" data-price="0">None</option>
+                        <option value="berries" data-price="400">Fresh Glazed Berries (+₹400)</option>
+                        <option value="macarons" data-price="600">French Macarons (+₹600)</option>
+                    </select>
+                </div>
+                <div class="billing-section">
+                    <h4>Estimated Investment</h4>
+                    <div class="bill-row">
+                        <span>Base Cake:</span>
+                        <span>₹1500</span>
+                    </div>
+                    <div class="bill-row total">
+                        <span>Total:</span>
+                        <span id="total-cost">₹1500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="booking" class="booking-section">
+        <div class="booking-container">
+            <h2>Finalize Your Order</h2>
+            <form id="booking-form">
+                <div class="input-row">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-row">
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                    <input type="date" id="date" required>
+                </div>
+                <textarea id="notes" placeholder="Any special requests or dietary requirements?" rows="3"></textarea>
+                <button type="submit" class="btn btn-full">Proceed to Secure Payment</button>
+            </form>
+        </div>
+    </section>
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="payment-title">Secure Checkout</h3>
+            <p id="payment-status">Initializing payment gateway...</p>
+            <div id="spinner" class="spinner"></div>
+            <button id="close-modal" class="btn" style="display: none; margin-top: 1.5rem;">Return to Site</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 [Your Bakery Name]. Crafted with elegance.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
